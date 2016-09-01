@@ -1,0 +1,71 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Bài 7</title>
+</head>
+<body>
+<div style="text-align:center; width:200px; margin:0 auto">
+	<h2>Lich de ban</h2>
+	<div id="resule"></div>
+</div>
+<script type="text/javascript">
+	function tinh(ngay,thu){
+		var t = thu;
+		for (i=ngay; i>1; i--)
+			if (t==0)
+				t=6;
+			else
+				t--;
+		return t;			
+	}
+	var d = new Date();
+	var days = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+	month = (days[d.getMonth()]);
+	year = d.getUTCFullYear();
+	date = d.getDate(); //ngay=1
+	day = d.getDay();	//thu5 = 4
+	mung1 = tinh(date,day);
+	number = [31,29,31,30,31,30,31,31,30,31,30,31];
+	number_day = number[d.getMonth()];
+	r = "<table style='border:1px solid black;'>";
+	r += "<tr  style='border:1px solid black;'>"
+	  +	"<td colspan='7' style='border:1px solid black; text-align:center'>"
+	  +		month + " " + year
+	  +	"</td>"
+	  +   "</tr>"
+	r += "<tr style='border:1px solid black;'>"
+	  +		"<td style='border:1px solid black; width:25px;'> Su </td>"
+	  +		"<td style='border:1px solid black; width:25px;'> M </td>"
+	  +		"<td style='border:1px solid black; width:25px;'> Tu </td>"
+	  +		"<td style='border:1px solid black; width:25px;'> W </td>"
+	  +		"<td style='border:1px solid black; width:25px;'> Th </td>"
+	  +		"<td style='border:1px solid black; width:25px;'> F </td>"
+	  +		"<td style='border:1px solid black; width:25px;'> Sa </td>"
+	  +  "</tr>"
+	ngay = 1;
+	r += "<tr style='border:1px solid black;'>"
+	for (i=0;i<=6;i++)
+		if (i<mung1) {
+			r  +=  "<td> </td>" }
+		else
+			if (date==ngay) {
+				r  += "<td style='border:1px solid black; color:red'>" + ngay++; + "</td>" }
+			else	
+				r  += "<td style='border:1px solid black;'>" + ngay++; + "</td>"
+	moc = ngay; //=4
+	r += "</tr>";	
+	for (i=ngay; i<=number_day; i++){
+		if ((i-moc)%7==0)
+			r += "<tr>";
+		if (date==i) {
+				r  += "<td style='border:1px solid black; color:red'>" + i + "</td>" }
+		else	
+				r += 	"<td style='border:1px solid black; width:25px;'>" + i + "</td>"
+		if ((i-moc)%7==6)
+			r += "</tr>";
+	}
+	r += "</table>";
+	document.getElementById("resule").innerHTML = r;
+</script>
+</body>
+</html>

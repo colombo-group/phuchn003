@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>bai2</title>
+</head>
+<script type="text/javascript">
+	function start(){
+		soluong = prompt("Nhập số lượng mảng : ");
+		arr = Array();
+		for (i=1; i<=soluong; i++)
+			arr[i] = prompt("Nhập trường thứ " + i);
+		r = "<table>";
+		for (i=1; i<=soluong; i++)
+			r += "<tr>" 
+			  +     "<td style='width:50px'>"
+			  +			arr[i]
+			  +	 "</td>"
+			  +     "<td style='width:150px;'>"
+			  +			"<input type='number'; id='so"+i+"'  >"
+			  +	 "</td>"		
+			  +  "</tr>"
+		r+= "</table>";
+		document.getElementById("box").innerHTML = r;
+		document.getElementById("but").innerHTML = "<input type='button'; onclick='tinh()'; value='ve do thi' >";
+	}
+	function tinh(){
+		r = "<table>";
+		for (i=1; i<=soluong; i++){
+			a = "so" + i;
+			v = document.getElementById(a).value;
+			if (v=="")
+				v = "0";
+			v = parseInt(v);
+			b = (v/100)*150;
+			r += "<tr>" 
+			  +     "<td style='width:50px'>"
+			  +			arr[i]
+			  +	 "</td>"
+			  +     "<td>"
+			  +		"<div style='width:150px; border:1px solid black; height:18px;'>"
+			  +			"<div style='background:red; width:"+v+"%'>" + "<span style='margin-left:"+b+"px'>"+v +"%"+ "</span>" +"</div>"
+			  +		"</div>"	
+			  +	 "</td>"		
+			  +  "</tr>";
+		}
+		r+= "</table>";
+		document.getElementById("result").innerHTML = r
+	}
+</script>
+<body>
+	 <div style="text-align:center">
+    	<button id="start" onclick="start()">Bắt đầu thiết lập</button>
+    </div>
+	<div id="box" style="margin:0 auto;width:200px">
+    	
+    </div>
+    <br />
+    <div style="text-align:center" id="but">	
+   </div>
+    <br>
+    <div id="result" style="margin:0 auto; width:200px;"></div>
+</body>
+</html>

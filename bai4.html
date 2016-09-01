@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bai 4</title>
+	<meta charset="utf-8">
+</head>
+<script type="text/javascript">
+	function ve_tam_giac() {
+		// body...
+		var num = document.getElementById("number").value;
+		var r = "";
+		for (i=1; i<=num; i++){
+			start = i%10;
+			for (j=1; j<=i; j++){
+				r += start + "&nbsp;&nbsp;";
+				if (start==0)
+					start = 9;
+				else
+					start--;	
+			}
+			r += "<br>";
+		}
+		document.getElementById("result").innerHTML = r;
+	}
+</script>
+<body>
+	<div style="margin:0 auto; width:600px" >
+		<input type="number" id="number">
+		<button id="but" onclick="ve_tam_giac()">Ve tam giac</button>
+		<div style="margin-left:0px; " id="result"></div>
+	</div>
+</body>
+</html>
