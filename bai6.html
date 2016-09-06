@@ -10,26 +10,24 @@
 		so2 = document.getElementById("so2").value;
 		switch (a){
 			case "cong":
-				r = parseInt(so1) + parseInt(so2);
+				r = parseFloat(so1) + parseFloat(so2);
 				document.getElementById("ketqua").value = r;
 				break;
 			case "tru":
-				r = parseInt(so1) - parseInt(so2);
+				r = parseFloat(so1) - parseFloat(so2);
 				document.getElementById("ketqua").value = r;
 				break;
 			case "nhan":
-				r = parseInt(so1) * parseInt(so2);
+				r = parseFloat(so1) * parseFloat(so2);
 				document.getElementById("ketqua").value = r;
 				break;
 			case "chia":
-				r = parseInt(so1) / parseInt(so2);
+				r = parseFloat(so1) / parseFloat(so2);
 				document.getElementById("ketqua").value = r;
 				break;
 			case "mu":
-				so1= parseInt(so1); so2 = parseInt(so2);
-				r=1;
-				for (i=1; i<=so2; i++)
-					r *= so1; 
+				so1= parseFloat(so1); so2 = parseFloat(so2);
+				r = Math.pow(so1,so2);
 				document.getElementById("ketqua").value = r;
 				break;				
 		}
@@ -41,7 +39,7 @@
 		<button id="cong" onClick="tinh(this.id)">+</button>
 		<button id="tru" onClick="tinh(this.id)">-</button>
 		<button id="nhan" onClick="tinh(this.id)">*</button>
-        <button id="chia" onClick="tinh(this.id)">\</button>
+        <button id="chia" onClick="tinh(this.id)">/</button>
         <button id="mu" onClick="tinh(this.id)">^</button>
         <input type="number" id="so2" style="width:70px" required>
         =
